@@ -1,0 +1,1166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #28a745;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Button Styles */
+.btn-primary, .btn-success, .btn-secondary, .btn-danger {
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background: #28a745;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #218838;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(40,167,69,0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(220,53,69,0.3);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Back Button */
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: #28a745;
+}
+
+/* Icon Button Styles */
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    color: #6c757d;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.btn-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Groups Page (Homepage) */
+.groups-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 1rem;
+}
+
+.group-count {
+    color: #6c757d;
+}
+
+.groups-list {
+    margin-top: 1rem;
+}
+
+/* Empty State for New Users */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6c757d;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin: 2rem 0;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Group Card with Clean Icons */
+.group-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    display: block;
+    position: relative;
+}
+
+.group-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.group-card:hover .group-actions {
+    opacity: 1;
+}
+
+.group-card-content {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: flex-start;
+    width: 100%;
+    pointer-events: none;
+}
+
+.group-info {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.group-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.group-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.group-amount {
+    grid-column: 2;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    flex-shrink: 0;
+    text-align: right;
+    align-self: flex-start;
+}
+
+/* Clean Group Actions - Icon Only */
+.group-actions {
+    grid-column: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    gap: 0.75rem;
+    align-self: flex-start;
+    pointer-events: auto;
+    margin-left: 0.5rem;
+}
+
+.group-action-btn {
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: #999999;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.group-action-btn:hover {
+    transform: scale(1.15);
+}
+
+.group-action-btn.edit-btn:hover {
+    color: #28a745;
+}
+
+.group-action-btn.delete-btn:hover {
+    color: #dc3545;
+}
+
+.group-action-btn svg {
+    width: 18px;
+    height: 18px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+/* Group Header (Group Detail Page) */
+.group-header {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+.group-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 20px;
+}
+
+.group-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.group-name-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.group-name-container h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.group-header .group-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.group-header .group-info p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.group-header .group-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.group-header .group-actions .btn-secondary,
+.group-header .group-actions .btn-success {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    min-width: 100px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Balances & Settlements Section */
+.balances-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin: 2rem 0;
+}
+
+.balances-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.settlements-list {
+    margin-top: 1rem;
+}
+
+.settlement-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    margin-bottom: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    transition: background-color 0.2s;
+}
+
+.settlement-item:hover {
+    background-color: #e9ecef;
+}
+
+.settlement-item:last-child {
+    margin-bottom: 0;
+}
+
+.settlement-text {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.settlement-amount {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #28a745;
+}
+
+.no-settlements {
+    text-align: center;
+    padding: 3rem;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.settlement-arrow {
+    margin: 0 0.75rem;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.settlement-emoji {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Expenses Section */
+.expenses-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin: 2rem 0;
+}
+
+.expenses-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.expense-item:hover {
+    background-color: #f8f9fa;
+}
+
+.expense-item:hover .expense-actions {
+    opacity: 1;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.expense-info h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.expense-info p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.expense-split {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.expense-amount-container {
+    text-align: right;
+    position: relative;
+}
+
+.expense-amount {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.expense-per-person {
+    font-size: 0.85rem;
+    color: #28a745;
+    margin-top: 0.25rem;
+}
+
+.expense-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.expense-actions {
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-left: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-large {
+    max-width: 600px;
+}
+
+.modal-small {
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-header h3 {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.close {
+    color: #6c757d;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.modal-body p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Form Styles */
+form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+.form-group select {
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'><path d='M7 10l5 5 5-5H7z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+}
+
+.form-help {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0.25rem 0 0 0;
+}
+
+.btn-add-member {
+    background: none;
+    border: 2px dashed #e9ecef;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #6c757d;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+.btn-add-member:hover {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+/* Checkbox Group - Clickable Everywhere */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    position: relative;
+    background-color: white;
+    border: 2px solid #e9ecef;
+    min-height: 50px;
+}
+
+.checkbox-item:hover {
+    background-color: #f8f9fa;
+    border-color: #28a745;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.checkbox-item.checked {
+    background-color: #f8fff9;
+    border-color: #28a745;
+}
+
+.checkbox-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+}
+
+.checkbox-custom {
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    margin-right: 1rem;
+    position: relative;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.checkbox-item input:checked ~ .checkbox-custom {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.checkbox-item input:checked ~ .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-item:hover .checkbox-custom {
+    border-color: #28a745;
+}
+
+.checkbox-label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    user-select: none;
+    pointer-events: none;
+    flex: 1;
+}
+
+.checkbox-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #28a745;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-link:hover {
+    color: #218838;
+    background-color: #f8fff9;
+    text-decoration: none;
+}
+
+/* Edit Member Item - Desktop style for all screens */
+.edit-member-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0;
+    background: none;
+}
+
+.edit-member-item input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.edit-member-item input:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+/* Compact delete button - same for all screens */
+.btn-remove-member {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.btn-remove-member:hover {
+    background: #c82333;
+}
+
+.btn-remove-member svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Modal Footer - Desktop style for all screens */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0 0 12px 12px;
+}
+
+.modal-footer-right {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+/* Button styling - consistent across all screens */
+.modal-footer .btn-secondary,
+.modal-footer .btn-danger,
+.modal-footer .btn-success {
+    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+/* Delete confirmation specific styling */
+#deleteConfirmModal .modal-footer {
+    justify-content: flex-end;
+    gap: 0.75rem;
+    flex-direction: row;
+}
+
+#deleteConfirmModal .modal-footer-right {
+    margin-left: 0;
+    flex-direction: row;
+}
+
+/* FORCE BUTTON VISIBILITY */
+#shareBtn, #addExpenseBtn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.group-header .group-actions {
+    display: flex !important;
+    opacity: 1 !important;
+    position: static !important;
+}
+
+/* Button hover effects */
+#shareBtn:hover {
+    background: #545b62 !important;
+}
+
+#addExpenseBtn:hover {
+    background: #218838 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Mobile Group Cards */
+    .group-card {
+        padding: 1rem;
+    }
+    
+    .group-card-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1rem;
+    }
+    
+    .group-info {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .group-amount {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: right;
+        font-size: 1.4rem;
+    }
+    
+    .group-actions {
+        grid-column: 1;
+        grid-row: 3;
+        opacity: 1;
+        justify-self: end;
+        margin: 0;
+        gap: 0.75rem;
+    }
+    
+    .group-action-btn {
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+    }
+    
+    .group-action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Mobile Group Header */
+    .group-header .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .group-header-left {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .group-header .group-actions {
+        width: 100%;
+        gap: 0.5rem;
+    }
+    
+    .group-header .group-actions .btn-secondary,
+    .group-header .group-actions .btn-success {
+        flex: 1;
+        min-width: auto;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    .group-name-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    /* Mobile Checkboxes */
+    .checkbox-group {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .checkbox-item {
+        padding: 1rem;
+        min-height: 60px;
+    }
+    
+    .checkbox-custom {
+        height: 28px;
+        width: 28px;
+        margin-right: 1rem;
+    }
+    
+    .checkbox-item input:checked ~ .checkbox-custom::after {
+        left: 8px;
+        top: 4px;
+        width: 7px;
+        height: 12px;
+        border-width: 0 3px 3px 0;
+    }
+    
+    .checkbox-label {
+        font-size: 1.1rem;
+    }
+    
+    .checkbox-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-link {
+        text-align: center;
+        padding: 0.75rem;
+        background-color: white;
+        border: 2px solid #28a745;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+    
+    .btn-link:hover {
+        background-color: #28a745;
+        color: white;
+    }
+    
+    /* Mobile Modal Adjustments */
+    .modal-large, .modal-small {
+        max-width: 95%;
+    }
+    
+    /* Mobile Member Items - Keep desktop layout */
+    .edit-member-item {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .edit-member-item input {
+        padding: 0.875rem;
+    }
+    
+    .btn-remove-member {
+        min-width: 48px;
+        height: 48px;
+        padding: 0.875rem;
+    }
+    
+    /* Mobile Modal Footer - Side by side buttons */
+    .modal-footer {
+        padding: 1rem 1.5rem;
+        flex-direction: row;
+    }
+    
+    .modal-footer-right {
+        flex-direction: row;
+        gap: 0.75rem;
+        margin-left: 0;
+    }
+    
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-danger,
+    .modal-footer .btn-success {
+        min-width: 100px;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Delete modal specific - side by side buttons */
+    #deleteConfirmModal .modal-footer {
+        flex-direction: row !important;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+    }
+    
+    #deleteConfirmModal .modal-footer-right {
+        flex-direction: row !important;
+        gap: 0.75rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    #deleteConfirmModal .btn-secondary {
+        flex: 1;
+        margin-right: 0.5rem;
+    }
+    
+    #deleteConfirmModal .btn-danger {
+        flex: 1;
+        margin-left: 0.5rem;
+    }
+    
+    .expense-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .expense-amount-container {
+        align-self: flex-end;
+        text-align: right;
+    }
+    
+    .expense-actions {
+        opacity: 1;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .settlement-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .settlement-amount {
+        align-self: flex-end;
+        font-size: 1.1rem;
+    }
+    
+    .settlement-arrow {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .group-actions {
+        gap: 0.5rem;
+    }
+    
+    .group-action-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .group-action-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .group-header .group-actions .btn-secondary,
+    .group-header .group-actions .btn-success {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .group-name-container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-footer {
+        padding: 1rem;
+    }
+    
+    .modal-footer-right {
+        gap: 0.75rem;
+    }
+    
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-danger,
+    .modal-footer .btn-success {
+        min-width: 90px;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}

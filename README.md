@@ -1,1 +1,1 @@
-# SplitEasy
+#SplitEasy without firebase - working fine with all the features
